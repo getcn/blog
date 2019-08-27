@@ -1,0 +1,225 @@
+配置中心
+数据库                  √
+锁地区访问锁            √
+IP锁                    √
+iewz（IE6789;远程文章） √
+文章密码                √
+敏感词屏蔽              √
+管理员后台              √
+会员后台                √ 
+首页                    √
+注册                    √
+注册邮箱激活            √
+部分需独立配置          √
+定时查看文章            √ 
+模块                    √
+
+
+锁地区访问锁
+           |
+   \conn\ipdiqu //目录
+           |
+           |_____ipdiqu.php //主文件
+                     |
+                  ipdiquku  //取目录下配置文件
+                     |
+                     |_____ipku  //没有扩展名配置文件
+
+IP 锁
+   |
+ \conn\ipsuo //目录
+         |
+         |_____ipsuo.php //主文件 //取.htaccess2里面的IP
+                  |
+           第一次访问生成，后续为记录
+             _____|_____________
+            |                   |
+      .htaccess2 禁止的ip记录   |
+                               log  //日志目录
+                                |
+                         第一次访问生成，后续为记录
+                   _____________|_____________
+                  |             |             |
+           forbidchk.dat    ipdate.dat   forbided_ip.log
+           //加入禁止ip     //防刷新     //访问IP记录
+
+（IE6789;远程文章）
+        |
+  \conn\iewz //目录
+        |
+        |_____ie-6789.php //IE浏览器屏蔽  \conn\iewz\ie-6789.php
+        |
+        |_____rootcn-blog.php  //授权给予获取的文章
+                     |
+                 测试方式
+                     |
+              服务器\\域名\conn\iewz\rootcn-blog.php?obtains5=Articles5
+                本地\\127.0.0.1/phps/xin-utf8/conn/iewz/rootcn-blog.php?obtains5=Articles5
+
+文章密码
+      |
+ \conn\mimawz  //目录
+         |
+         |_____css //网页的样式和布局   
+         |_____fonts //字体               
+         |_____js //脚本               
+         |_____mima.php //原文件现以没用
+         |
+         |_____1.php  //输入密码查看；用户发表文章时可设置密码
+         |                  
+         |_____mi.php  //获取文章并根据敏感词进行屏蔽文章出现的文字
+         |
+         |_____mimawz.php  //联系方式
+
+敏感词屏蔽
+     |
+\conn\sensitivewordss  //目录 
+            |
+            |_____cache //缓存目录 需先建立；以后会修改为自动创建
+            |       | 
+            |       |_____bad_words_cache  //生成缓存文件
+            |
+            |_____vocabulary_judge  //敏感词列表， 每行一个敏感词
+            |          |
+            |          |_____添加敏感词只有管理员有权限添加会员没有权限
+            |
+            |_____mgc_scsc.php  //生成敏感词内容
+
+
+管理员 后台
+\content_adm  //后台目录
+   |
+   |_____\coadid //手机判断目录
+   |       |
+   |      \sj  //手机用户跳转目录
+   |       |_____sj.php   //非手机用户和手机用户暂时跳转管理员后台
+   |       |                ps：只有管理能跳转        
+   |       |_____sj-1.php //停用
+   |
+   |_____\denglu //登录配置
+   |       |_____css
+   |       |_____js
+   |       |_____shuruqi.php //输入器（键盘）
+   |       |_____verify.php  //生产验证码
+   |
+   |_____js  //脚本目录
+   |
+   |_____phpbjq //后台在线测试配置
+   |       |
+   |       |_____cookid.php //混合
+   |       |_____phpbjq.php //接收文章可视化查看或修改
+   |       |_____run2.php   //输入内容，run3.php可视化查看
+   |       |_____run3       //停用
+   |       |_____run3.php   //空白文档，接受run2.php内容作为显示
+   |
+   |_____zc  //跳转注册目录
+   |     |_____zc.php //跳转注册
+   |
+   |_____index.php                                //跳转会首页
+   |_____admin.php                               //登录页面
+   |_____home.php                               //管理员后台首页
+   |_____io-ia.php                             //管理员后台配置文档
+   |_____content.php                          //管理文章
+   |_____modify_content.php                  //修改文章
+   |_____added_content.php                  //新增文章
+   |_____phpbjq.php                        //在线测试编辑器
+   |_____mgc_gl.php                       //敏感词管理
+   |_____id_content_ad.php               //会员账号管理
+   |_____tx_avatar_ad.php               //头像上传页面
+   |          |_____sc_tx-avatar.php   //头像上传配置
+   |_____Modifymemberinformation.php  //会员账号修改
+   |_____routinesettings.php         //常规设置
+   |_____ip_ku_home.php             //地区管理
+   |_____ewm_avatar_ad.php         //联系方式》二维码
+   |     |_____sc_ewm-avatar.php  //二维码上传配置
+   |_____register_smtp_home.php  //smtp配置文件
+
+
+首页
+ |_____index.php           //首页
+ |_____content_detail.php //文章页面
+ |_____404.php            //404页面
+
+
+注册
+ |
+\zc //目录
+   |_____zc_php //存放css，js目录
+   |_____index.php  //跳转首页
+   |_____zc.ph  //注册会员用户
+   |     |_____需修改本地测试激活地址-142
+   |                   |_____http://$htmlym/phps/utf8/zc/zhuceyz/active.php?verify=".$token."
+   |                   |_____/phps/utf8/吧该内容去掉，一共两处，本地使用请按照您个人本地进行修改
+   |_____zhongyaotongzhi.php  //注册协议
+   |
+\zc\zhuceyz\ //注册邮箱激活
+   |
+   |_____active.php //激活注册账号
+
+模块
+ |
+\Modulars  //模块存放目录
+ |_____layer //layer（jQuery弹出层插件）目录
+
+
+部分需独立配置
+ |
+\do //目录
+   |_____\bd  //百度HTML编辑器 目录
+   |_____\css_cook_js //存放js,css
+   |_____\css_js_img_detail //存放js,css
+   |_____\fanyi  //自动翻译（google-translate）（Microsoft-Translator）
+   |_____\in_js_css //存放js,css和部分用户内容
+   |_____banquan.php  //版权-带自动翻译
+   |_____banquan-nofanyi.php  //版权-不带自动翻译
+   |_____checkadmin.php    //以停用
+   |_____checksession.php  //以停用
+   |_____do.php     //独立添加文章，修改用户等重要配置
+   |_____index.php  //跳转首页
+
+
+用户后台
+|
+\user_home //会员后台
+   |
+   |_____\coadid //手机判断目录
+   |       |
+   |      \sj  //手机用户跳转目录
+   |       |_____sj.php   //非手机用户和手机用户暂时跳转管理员后台
+   |       |                ps：只有管理能跳转        
+   |       |_____sj-1.php //停用
+   |
+   |_____\denglu //登录配置
+   |       |_____css
+   |       |_____js
+   |       |_____shuruqi.php //输入器（键盘）
+   |       |_____verify.php  //生产验证码
+   |       
+   |_____zc  //跳转注册目录
+   |     |_____zc.php //跳转注册
+   |
+   |_____index.php                                //跳转会首页
+   |_____admin.php                               //登录页面
+   |_____home.php                               //管理员后台首页
+   |_____io-ia.php                             //管理员后台配置文档
+   |_____content.php                          //管理文章
+   |_____modify_content.php                  //修改文章
+   |_____Modifymemberinformation.php  //会员账号修改
+   |_____added_content.php                  //新增文章
+   |_____added_contents_mian.php                  //免费用户试用1次，后续考虑移除
+   |_____added_contents.php                  //自定义文章图片
+             |
+             | 
+       \user_id //会员上传自定义文章图片目录
+            |
+            |_____userphoto //二级目录
+                            |
+                            |_____time //三级目录
+                                       |
+                                       |_____user //四级目录
+                                                  |
+                                                  |_____{会员名称同步文件夹}
+                                                  |
+                                                  |_____.quarantine    
+                                                  |                              》缓存目录
+                                                  |_____.tmb

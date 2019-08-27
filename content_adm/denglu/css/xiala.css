@@ -1,0 +1,52 @@
+@charset "gb2312";
+/* CSS Document */
+
+  
+/* 容器 <div> - 需要定位下拉内容 */    
+.dropdown{    
+    position:relative;    
+    display:inline-block;    
+}    
+   
+/* 下拉菜单内容，设置为隐藏 */    
+.dropdown-content{    
+    min-width:150px;    
+    background-color:#F5F5F5;    
+    position:absolute;    
+    display:none;    
+    box-shadow:0px 8px 15px 0px rgba(0,0,0,0.2);    
+}    
+   
+/* 下拉按钮样式 */    
+.dropbtn{    
+    color:white;    
+    font-size:16px;    
+    padding:15px;    
+    border:none;    
+    background-color:#00CD66;    
+    cursor:pointer;    
+}    
+   
+/* 下拉菜单链接的样式 */    
+.dropdown-content a{    
+    color:black;    
+    text-decoration:none;    
+    padding:12px 15px;    
+    display:block;    
+}    
+   
+/* 鼠标移入后显示下拉菜单 */    
+.dropdown:hover .dropdown-content{    
+    display:block;    
+}    
+   
+/* 鼠标移入后修改链接的背景色 */    
+.dropdown-content a:hover{    
+    background-color:#E8E8E8;    
+}    
+   
+/* 下拉菜单显示后修改下拉按钮的背景色 */    
+.dropdown:hover .dropbtn{    
+    background-color:#008B00;    
+}    
+ 

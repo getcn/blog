@@ -1,0 +1,3 @@
+<!--管理--><?php $badwords_last_time = 1536932766;$badwords_array = array (
+  '<!--默认生成文件-请自由编写-->' => '',
+);

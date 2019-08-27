@@ -1,0 +1,78 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Jquery仿12306点图验证码-极资源</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="public/css/ipicture.css"/>
+        <script type="text/javascript" src="public/js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="public/js/jquery.ipicture.js"></script>
+        <script type="text/javascript" src="public/js/junphp.js"></script>
+        <style type="text/css">
+            body{margin:0}
+        </style>
+    </head>
+
+    <body>
+        <p id="title">加载中....</p>
+
+        <!--图片容器-->
+        <div id="iPicture" data-interaction="hover" style="width: 440px;"></div>
+        <!--存储验证的容器-->
+        <input type="hidden" id="iPicture_id" value="">
+        
+        <div style="width: 100%;float: left;margin-top: 10px"><button type="button">确认提交</button></div>
+    </body>
+</html>
+
+<script type="text/javascript">
+// 请求更新图片
+function get_img() {
+    $.ajax({
+        type: 'get',
+        data:{},
+        url: "demo/get_img.php",
+        success: function(data) {
+            var array = eval('('+data+')');
+
+            if (array['code'] == '00') {
+                $('#title').html(array['msg']);
+                var html = '';
+                for(var i=0; i<array['data'].length; i++){
+                    html += '<div class="ip_slide" style="float: left;margin-left: 5px"><img class="ip_tooltipImg" src="'+array['data'][i]['vi_url']+'" data-id="'+array['data'][i]['vi_id']+'"></div>';
+                }
+                $('#iPicture').html(html);
+                // 清空id池
+                $('#iPicture_id').val('');
+            } else {
+                alert(array['msg']);
+            }
+        }
+    });
+}
+// 页面自动加载一次
+get_img();
+// 启动红点标记插件
+$("#iPicture").iPicture();
+
+// 点击确认按钮去验证
+$('button').click(function(){
+    var id = $('#iPicture_id').val();
+    if (id=='' || id==',') {
+        alert('请先选择图片');
+    }else{
+        $.ajax({
+            type: 'post',
+            data:{'id':id},
+            url: "demo/ajax_vif.php",
+            success: function(data) {
+                var array = eval('('+data+')');
+                alert(array['msg']);
+                if (array['code'] == '00') {
+                    // 刷新验证码
+                    get_img();
+                }
+            }
+        });
+    }
+})
+</script>
