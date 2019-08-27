@@ -1,3 +1,6 @@
+# PHP
+博客采用PHP5.6以上开发，默认是不支持到7.0，如果需要支持到7.0以上，需要对数据库和代码进行修改和完善！
+
 # blog
 Open Source Simple Blog - PHP
 
