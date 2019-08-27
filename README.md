@@ -5,12 +5,12 @@ Open Source Simple Blog - PHP
 
 当然博客也会持续修改，大家也可将修改好的代码公开或者发到我的邮箱：rootcn@rootcn.cn
 
-这是我的<a href='http://blog.rootcn.cn' target="_blank">blog</a>站点
+这是我的<a target="_blank" href='http://blog.rootcn.cn'>blog</a>站点
 
 # 赞助
 如果您喜欢我修改的博客也可赞助，当然金额不限，可赞助也可不赞助。因为开发的难度和需要对服务器进行续费。
 
-<a href='http://blog.rootcn.cn' target="_blank">点击跳转PayPal</a>
+<a target="_blank" href='http://paypal.me/zg98' >点击跳转PayPal</a>
 
 WeChat扫码
 <img src="https://raw.githubusercontent.com/getcn/blog/master/%E6%88%AA%E5%9B%BE/webwxgetmsgimg.png" alt="">
