@@ -9,7 +9,7 @@ Open Source Simple Blog - PHP
 
 当然博客也会持续修改，大家也可将修改好的代码公开或者发到我的邮箱：rootcn@rootcn.cn
 
-这是我的<a target="_blank" href='http://blog.rootcn.cn'>blog</a>站点
+这是我的<a target="_blank" href='http://blog.rootcn.cn'>“blog”</a>站点
 
 从2017年7月6日到2019年8月27日，耗时762天，大约2年，公开所有代码，供给想入门的做网站的新手，也适合各位进行学习
 
