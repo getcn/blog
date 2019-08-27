@@ -10,13 +10,7 @@ Open Source Simple Blog - PHP
 
 这是我的<a target="_blank" href='http://blog.rootcn.cn'>blog</a>站点
 
-# 赞助
-从2017年7月6日到2019年8月27日，历时这么久，如果大家喜欢我修改的博客也可赞助，当然金额不限，可赞助也可不赞助。因为开发的难度和需要对服务器进行续费。
-
-<a target="_blank" href='http://paypal.me/zg98' >点击跳转PayPal</a>
-
-WeChat扫码
-<img src="https://raw.githubusercontent.com/getcn/blog/master/%E6%88%AA%E5%9B%BE/webwxgetmsgimg.png" alt="">
+从2017年7月6日到2019年8月27日，历时这么久，出于学习，公开所以代码
 
 # 截图
 首页
